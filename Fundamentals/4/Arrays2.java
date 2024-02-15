@@ -138,4 +138,101 @@ x[0].length -> 3
 // And every array within the base array can have different size
 // Hence it returns the size of base array by default
 
+int[][] x = new int[3][6];
+// Here it creates a base array of size 3
+// Every element in that base array is of size 6
+
+int[][] p = new int[3][];
+// Here it creates a base array of size 3
+p[0] = new int[2];
+p[1] = new int[3];
+
+// Sometimes we can declare arrays without name
+// Such arrays are called Anonymous arrays
+// These arrays are for instant use (1 time usage)
+
+// We can create anonymous array as follows
+new int[] {10,20,30,40};
+
+// Note that size is not specified,
+new int[4] {10,20,30,40};
+// Compile Time error
+
+// Why would we need Nameless arrays?
+// Suppose we have a method that prints the sum of elements of an array
+// We don't need that array anytime after that
+
+public static void summ(int[] x)
+  {
+  int total = 0;
+  for(int x1 : x) total+=x1;
+  System.out.println(total);
+};
+
+// Here if we don't need the array again, then
+// Call the summ method as :
+ summ(new int[]{10,20,30,40,50});
+
+// Note that these elements cannot be accessed again then
+// In anonymous arrays we cannot specify size
+// Else we get compile time error
+
+// We can also create multidimensional anonymous arrays also
+
+new int[][] {{10,20},{10,20,30}};
+
+// Based on our requirement, we can give the name for anonymous array
+// Then it is no longer anonymous
+
+int[] x = new int[]{10,20,30};
+// Now this array is no longer anonymous
+
+// The chart is as follows
+
+// byte->short->int->long->float->double
+//           char|^
+
+// char can also be assigned to int
+
+int[] x = new int[5];
+x[0] = 'a';
+// char can be assigned to int, hence works
+
+// byte, short, int, long, float can be assigned to float array.
+
+// In the case of Object type arrays,
+// As array elements we can assign, either declared type objects or its child class objects
+
+// Example 1:
+
+Object[] a = new Object[5];
+a[0] = new Object();
+a[1] = new Integer(10);
+a[2] = new String("Hello");
+// All of the above are valid
+
+// All numerical and decimal types are the children of Number class
+// ie short, byte, int, float, double, long 
+
+Number[] n = new Number[10];
+n[0] = new Number[1];
+n[1] = new Double(0.5);
+n[2] = new String("Hello");
+// Compile time error because String is not a child class of Number
+
+// For interface type arrays,
+// As array elements, its implementation class objects are allowed
+
+Runnable[] r = new Runnable[10];
+r[0] = new Thread(); // Valid
+r[1] = new String("Hello"); // Invalid
+
+// Since Thread class implements runnable so r[0] is valid
+
+// Array type                   Allowed element types
+// Primitive arrays             Any type which can be implicity promoted to declared type
+// Object type arrays           Declared type or its child class objects
+// Abstract class type arrays   its child class objects
+// Interface type arrays        All implementation class objects are allowed
+  
 
