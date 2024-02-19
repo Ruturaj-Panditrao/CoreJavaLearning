@@ -71,7 +71,7 @@ public class StudentBean
       this.name = name;
     }
 
-    public string getName
+    public string getName()
     {
       return name;
     }
